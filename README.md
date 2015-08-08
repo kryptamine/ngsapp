@@ -35,7 +35,17 @@ cron */30 * * * * /usr/local/bin/php /var/www/update.php
 
 #Установка
 1. Склонировать репозиторий
-2. Настроить .htaccess(либо правила nginx)
+2. Обратите внимание на наличие .htaccess, настройки для nginx:
+# nginx configuration 
+    
+`location / 
+{ 
+    rewrite ^/$ /index.php break; 
+    if (!-e $request_filename)
+    { 
+        rewrite ^(.*)$ /index.php; 
+    } 
+}`
 3. Ссылка на приложение(относительно корня): http://localhost/city
 
 #Требования
