@@ -58,6 +58,8 @@ class CityController extends BaseController{
 
             CityModel::create(['name' => $_POST['name'],
                                'alias' => $_POST['alias']]);
+
+            $this->redirect('/city');
         }
 
 
@@ -150,7 +152,9 @@ class CityController extends BaseController{
      */
     public function delete($id) {
 
-        return CityModel::getCollection()->remove(['_id' => new MongoId($id)]);
+        CityModel::getCollection()->remove(['_id' => new MongoId($id)]);
+
+        $this->redirect('/city');
     }
 
     /**
