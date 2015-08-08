@@ -15,11 +15,13 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <a class="navbar-brand" href="/city/">Weather</a>
-        <p class="navbar-text"><?=$weather['city']?>:
-            Температура:<?=$weather['weather']['temperature']?>&degС
-            Давление:<?=$weather['weather']['pressure']?>мм рт.ст.
-            Влажность:<?=$weather['weather']['humidity']?>%
-        </p>
+        <? if ($weather) : ?>
+            <p class="navbar-text"><?=$weather['city']?>:
+                Температура:<?=$weather['weather']['temperature']?>&degС
+                Давление:<?=$weather['weather']['pressure']?>мм рт.ст.
+                Влажность:<?=$weather['weather']['humidity']?>%
+            </p>
+        <? endif; ?>
     </div>
 </nav>
 <div class="container" style="margin-top: 60px;">
@@ -37,7 +39,6 @@
                 <button type="submit" class="btn btn-default pull-right">Редактировать</button>
             </form>
         </div>
-
     </div>
 </div>
 </body>

@@ -9,16 +9,18 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <a class="navbar-brand" href="/city/">Weather</a>
-        <p class="navbar-text"><?=$weather['city']?>:
-            Температура:<?=$weather['weather']['temperature']?>&degС
-            Давление:<?=$weather['weather']['pressure']?>мм рт.ст.
-            Влажность:<?=$weather['weather']['humidity']?>%
-        </p>
+        <? if ($weather) : ?>
+            <p class="navbar-text"><?=$weather['city']?>:
+                Температура:<?=$weather['weather']['temperature']?>&degС
+                Давление:<?=$weather['weather']['pressure']?>мм рт.ст.
+                Влажность:<?=$weather['weather']['humidity']?>%
+            </p>
+        <? endif; ?>
     </div>
 </nav>
 <div class="container" style="margin-top: 60px;">
     <div class="row">
-            <a href="add" class="btn btn-primary">Добавить город</a>
+            <a href="/city/add" class="btn btn-primary">Добавить город</a>
             <table width="100%" class="table">
                 <thead>
                     <tr>
@@ -38,10 +40,10 @@
                 ?>
                     <tr>
                         <td><?=$i?></td>
-                        <td><a href="show/<?=$city['alias']?>"><?=$city['name']?></a></td>
+                        <td><a href="/city/show/<?=$city['alias']?>"><?=$city['name']?></a></td>
                         <td>
-                            <a href="edit/<?=$key?>" class="btn btn-warning">Изменить</a>
-                            <a href="delete/<?=$key?>" class="btn btn-danger">Удалить</a>
+                            <a href="/city/edit/<?=$key?>" class="btn btn-warning">Изменить</a>
+                            <a href="/city/delete/<?=$key?>" class="btn btn-danger">Удалить</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

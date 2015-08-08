@@ -11,9 +11,17 @@ abstract class BaseController {
 
 
     public function __construct() {
-
         $this->view = new BaseView();
     }
 
+
+    /**
+     * Base redirect
+     * @param $url
+     */
+    protected function redirect($url) {
+        header('Location: '.$url);
+        exit();
+    }
 
 }

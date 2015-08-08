@@ -183,6 +183,8 @@ class CityController extends BaseController{
                 'name' => $_POST['name'],
                 'alias' => $_POST['alias']
             ]);
+
+            $this->redirect('/city');
         }
     }
 
