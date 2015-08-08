@@ -14,7 +14,11 @@ spl_autoload_register(function($class) {
 
     $classParts[0] = BASE_PATH;
 
+    $pop = array_pop($classParts);
+
     $classParts = array_map('strtolower', $classParts);
+
+    array_push($classParts, $pop);
 
     $path = implode(DIRECTORY_SEPARATOR, $classParts) . '.php';
 
