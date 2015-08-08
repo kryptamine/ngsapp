@@ -32,7 +32,8 @@ class CityController extends BaseController{
 
         } else  $alias = $model->findOne();
 
-        $this->setWeather($alias);
+        if ($alias)
+            $this->setWeather($alias);
 
     }
 
